@@ -1,10 +1,16 @@
 import { useCartContext } from "../provider/CartProvider";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
   const { dispatch } = useCartContext();
 
+  const test = () => {
+    dispatch({ type: "item_id", payload: product });
+    //alert("click");
+  };
+
   return (
-    <div className="flex flex-col border border-gray-300 shadow-sm rounded-xl p-4">
+    <div key={product.id} className="flex flex-col border border-gray-300 shadow-sm rounded-xl p-4">
       <img
         src={product.image}
         alt={product.title}
@@ -21,6 +27,10 @@ const ProductItem = ({ product }) => {
       >
         Añadir al carrito
       </button>
+      <div>
+        <Link to={`/producto/${product.id}`} onClick={test}>Detalle</Link>
+      </div>
+      
     </div>
   );
 };

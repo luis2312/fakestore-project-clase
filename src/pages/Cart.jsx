@@ -3,7 +3,8 @@ import { useCartContext } from "../provider/CartProvider";
 
 const Cart = () => {
   const {
-    state: { cart, totalPrice },
+    state: { cart, totalPrice, totalArticulos },
+    //state: { cart, totalPrice },
   } = useCartContext();
 
   return (
@@ -16,6 +17,7 @@ const Cart = () => {
           ))}
         </div>
         <div className="font-bold text-3xl">TOTAL: ${totalPrice}</div>
+        <div className="font-bold text-3xl">TOTAL ARTICULOS: {totalArticulos}</div>
       </div>
     </div>
   );

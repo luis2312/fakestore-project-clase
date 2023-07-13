@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import ProductosDetalle from "./pages/ProductosDetalle";
 import { CartProvider } from "./provider/CartProvider";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/carrito" exact element={<Cart />} />
+            <Route path="/producto/:id" element={<ProductosDetalle/>} />
           </Routes>
         </main>
       </BrowserRouter>

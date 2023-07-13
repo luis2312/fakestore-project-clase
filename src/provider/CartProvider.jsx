@@ -24,6 +24,19 @@ const reducer = (state, action) => {
           0
         ),
       };
+
+    case "item_id":
+      return {
+        ...state,
+        item_id: action.payload,
+      };
+
+    case "TOTAL_ARTICULOS":
+      return {
+        ...state,
+        totalArticulos: state.cart.reduce((prev, product) => prev + 1, 0),
+      };
+
     default:
       return state;
   }
@@ -41,6 +54,10 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "TOTAL_PRICE" });
+  }, [state.cart]);
+
+  useEffect(() => {
+    dispatch({ type: "TOTAL_ARTICULOS" });
   }, [state.cart]);
 
   return (
